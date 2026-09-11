@@ -1,4 +1,5 @@
 usuarios = dict()
+votos = dict()
 
 def registrar_voto():
     pass
