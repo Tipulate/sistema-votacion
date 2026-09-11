@@ -39,7 +39,14 @@ def reiniciar_votacion():
     )
 
 
-reiniciar_votacion()
+def menu():
+    print("""
+1. Registrar voto
+2. Ver resultados
+3. Reiniciar votación
+4. Salir
+""")
+
 while True:
     menu()
     opcion = input("Elige una opción: ").strip()
