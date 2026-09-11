@@ -59,7 +59,3 @@ def ver_resultados():
 
 def reiniciar_votacion():
     pass
-
-
-while True:
-    pass
