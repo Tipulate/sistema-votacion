@@ -1,3 +1,4 @@
+import pandas as pd
 usuarios = dict()
 
 def registrar_voto():
@@ -7,7 +8,9 @@ def ver_resultados():
     pass
 
 def reiniciar_votacion():
-    pass
+    pd.DataFrame(list(usuarios.items()), columns=["usuario", "voto"]).to_csv(
+        "usuarios.csv", index=False
+    )
 
 
 while True:
