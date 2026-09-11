@@ -54,8 +54,3 @@ while True:
         break
     else:
         print("Opción inválida.")
-def ver_resultados():
-    pass
-
-def reiniciar_votacion():
-    pass
