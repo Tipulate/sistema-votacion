@@ -1,9 +1,11 @@
 import pandas as pd
+import hashlib
 usuarios = dict()
 votos = {"Team Green":0,"Team Black":0}
 
 def registrar_voto():
     identificador = input("Ingresa tu identificador (cédula o usuario): ").strip()
+    identificador = hashlib.sha256(identificador.encode()).hexdigest()
 
     if identificador in usuarios:
         print("Ya registraste tu voto. No puedes votar dos veces.")
@@ -20,7 +22,7 @@ def registrar_voto():
         print("Opción inválida. Debes elegir 1 o 2.")
         return
 
-    usuarios[identificador] = True
+    usuarios[identificador] = opcion
     votos[opcion] += 1
 
     print("Voto registrado correctamente. ¡Gracias por participar!")
@@ -33,8 +35,8 @@ def ver_resultados():
         print("\nAún no hay votos registrados.\n")
         return
 
-    votos_black = sum(1 for voto in usuarios.values() if voto == "team black")
-    votos_green = sum(1 for voto in usuarios.values() if voto == "team green")
+    votos_black = sum(1 for voto in usuarios.values() if voto == "Team Black")
+    votos_green = sum(1 for voto in usuarios.values() if voto == "Team Green")
 
     porcentaje_black = (votos_black / total_votos) * 100
     porcentaje_green = (votos_green / total_votos) * 100
